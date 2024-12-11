@@ -1,0 +1,42 @@
+<!-- edit.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Edit Book</title>
+</head>
+<body>
+
+<div class="container">
+    <center>
+        <h1>Kitap Düzenleme</h1>
+    </center>
+
+    <h2>Kitap Düzenle</h2>
+
+    <form th:action="@{/books/edit/{id}(id=${book.id})}" th:object="${book}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <label for="kitapAdi">Kitap Adı:</label>
+        <input type="text" id="kitapAdi" name="kitapAdi" th:field="*{kitapAdi}" required>
+
+        <label for="yazar">Yazar:</label>
+        <input type="text" id="yazar" name="yazar" th:field="*{yazar}" required>
+
+        <label for="basimYili">Basım Yılı:</label>
+        <input type="date" id="basimYili" name="basimYili" th:field="*{basimYili}" required>
+
+        <label for="sayfaSayisi">Sayfa Sayısı:</label>
+        <input type="number" id="sayfaSayisi" name="sayfaSayisi" th:field="*{sayfaSayisi}" required>
+
+        <button type="submit">Kaydet</button>
+    </form>
+
+    <a href="/books">Kitaplar Listesine Geri Dön</a>
+
+</div>
+
+</body>
+</html>

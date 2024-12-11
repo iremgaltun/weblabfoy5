@@ -1,0 +1,47 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Kitap Yönetim Sistemi</title>
+</head>
+<body>
+
+<div class="container">
+    <center>
+        <h1>Kitaplarım</h1>
+    </center>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kitap Adı</th>
+            <th>Yazar</th>
+            <th>Basım Yılı</th>
+            <th>Sayfa Sayısı</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.kitapAdi}"></td>
+            <td th:text="${book.yazar}"></td>
+            <td th:text="${book.basimYili}"></td>
+            <td th:text="${book.sayfaSayisi}"></td>
+            <td><a th:href="@{/books/edit/{id}(id=${book.id})}">Edit</a></td>
+            <td><a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/books/add">Add Book</a>
+
+</div>
+
+</body>
+</html>

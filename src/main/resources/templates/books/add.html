@@ -1,0 +1,43 @@
+<!-- add.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Kitap Ekle</title>
+</head>
+<body>
+
+<div class="container">
+
+    <center>
+        <h1>Kitaplarım</h1>
+    </center>
+
+    <h2>Kitap Ekle</h2>
+
+    <form th:action="@{/books/add}" th:object="${book}" method="post">
+    <label for="kitapAdi">Kitap Adı:</label>
+    <input type="text" id="kitapAdi" name="kitapAdi" th:field="*{kitapAdi}" required>
+
+    <label for="yazar">Yazar:</label>
+    <input type="text" id="yazar" name="yazar" th:field="*{yazar}" required>
+
+    <label for="basimYili">Basım Yılı:</label>
+    <input type="date" id="basimYili" name="basimYili" th:field="*{basimYili}">
+
+    <label for="sayfaSayisi">Sayfa Sayısı:</label>
+    <input type="number" id="sayfaSayisi" name="sayfaSayisi" th:field="*{sayfaSayisi}">
+
+    <button type="submit">Kaydet</button>
+</form>
+
+    <br>
+    <br>
+    <a href="/books">Back to List</a>
+
+</div>
+
+</body>
+</html>
